@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- method : get, post, update, delete 등 -->
+    <!-- action은 도착지 쓰는 곳 -->
+    <form action = "tag.html" method = "get">
+    <!-- input (input:text 입력시 자동완성)-->
+
+    <input type = "text" name = "" id = "" placeholder="아이디 입력"> <br>
+    <input type = "text" value="Hello World"> <br>
+    <input type = "text" value = "창 잠금" disabled="true">
+    <input type = "password"><br>
+
+    <h4>selectBox</h4>
+    <select>
+        <option>서울</option>
+        <option>경기</option>
+        <option>부산</option>
+    </select>
+
+    <h4>checkBox</h4>
+    <!-- 그룹을 name으로 지정 -->
+     <!-- js에서는 name을 기준으로 입력값을 갖고옴 (배열로 호출)-->
+      <!-- if, js에서 값을 갖고올때, value의 값을 갖고 옴 -->
+    <input type = "checkBox" name="hobby" id="" value = "독서" checked>독서
+    <input type = "checkBox" name="hobby" id="" value = "자전거">자전거
+    <input type = "checkBox" name="hobby" id="" value = "수영">수영
+    
+    <h4>radio</h4>
+    <input type = "radio" name="language" id="java" checked>java
+    <input type = "radio" name="language" id="python">python
+    <input type = "radio" name="language" id="javascript">javascript <br>
+
+    <input type = "file" name="" >
+
+    <!-- 버튼 3개 (해당 폼 안에 내용을 초기화, 호출, 실행 등을 함)-->
+    <!-- 유효성 검사해서 보낼꺼면 button / 그냥 보낼거면 submit을 사용 -->
+    <input type = "reset" value = "초기화">
+    <input type = "submit" value = "form 기능 실행">
+    <input type = "button" value = "javascript호출">
+    
+    
+</form>
+</body>
+</html>
