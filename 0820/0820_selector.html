@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자1</title>
+
+    <style>
+        /* 태그명 그대로 css 대상으로 선택 가능 */
+        a {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color:black;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .wid-100 {
+            width: 100px;
+        }
+
+        .hei-50 {
+            height: 50px;
+        }
+
+        .title_content {
+            border: 2px dashed blue;
+        }
+
+        /* #은 아이디, .은 클래스 
+         */
+
+        #input_text {
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            /* border-radius: 5px; */
+            border:none;
+            border-bottom: 1px solid #000;
+        }
+
+        /* h1태그중 클래스를 가진애들에게 적용 */
+        h1[class] {
+            color:red;
+        }
+        
+        h1[target] {
+            border:1px solid #000;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>제목 타이틀</h1>
+    <h1 class="www">제목1</h1>
+    <H1 class="hhh">제목2</H1>
+
+    <h2 class = "title_content wid-100">두번째라인</h2>
+    <a href="https://www.naver.com wid-100">네이버</a>
+    <a href="https://www.daum.net">다음</a>
+    <br>
+
+    네이버 구글 <br>
+    <input type = "text" id = "input_text">
+
+</body>
+</html>

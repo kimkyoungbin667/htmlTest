@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+
+    <style>
+        .outline, .box {
+            width: 60px;
+            height: 60px;
+            
+        }
+
+        .outline {
+            margin-top: 20px;
+            border: 3px solid yellow;
+        }
+
+        .box {
+            background-color: deepskyblue;
+        }
+
+        .animation {
+            /* animation: 애니메이션명 한사이클할떄의 지속초 (인피니티여부) */
+            /* 처음엔 느리게->점점빠르게 or 처음에 빠르게 -> 점점 느리게 */
+            animation: test01 2s infinite linear;
+        }
+
+        /* 애니메이션을 적용할때의 옵션 : @keyframes */
+        /* @keyframes 애니메이션명 (변수명) */
+        @keyframes test01 {
+
+            /* 애니메이션 적용시 처음과 끝의 결과가 같아야함 */
+
+            /* 시작 from  */
+            from {transform:rotate(0deg); background-color:red;
+            }
+
+            /* 종료 to */
+            to {transform: rotate(360deg); background-color: aqua;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class = "outline">
+        <div class="box animation"></div>
+    </div>
+
+
+
+</body>
+</html>

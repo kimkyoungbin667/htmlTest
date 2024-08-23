@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜지션</title>
+
+    <style>
+        
+        /*
+            [옵션]
+            linear : 시작부터 끝까지 일정하게 진행 (같은 속도로) 
+            ease : 시작과 끝에서만 천천히가고 중간은 빠름
+            ease-in : 시작할때 천천히, 끝날때 빠르게
+            ease-out : 시작할때 빠르고, 끝날땐 천천히
+            ease-in-out : 시작과 끝엔 천천히, 중간은 빠르게
+        
+        */
+        
+        .button {
+            background-color: blue;
+            transition: background-color 0.5s ease-in;
+        }
+
+        .button:hover {
+            background-color: red;
+            
+        }
+
+        .outline, .box {
+            width: 60px;
+            height: 60px;
+            
+        }
+
+        .outline {
+            margin-top: 20px;
+            border: 3px solid yellow;
+        }
+
+        .box {
+            background-color: deepskyblue;
+            transition-duration: 1s;
+            transition-timing-function: ease-in;
+
+        }
+
+        .box:hover{
+            transform: translateX(50px);
+            border-radius: 50%;
+        }
+
+        .translate {
+            /* X축에서 오른쪽으로 50px만큼 이동 */
+            transform: translateX(50px);
+        }
+
+        .translate1 {
+            /* X축에서 오른쪽으로 50px만큼 이동 */
+            transform: translateX(50px);
+        }
+
+    </style>
+</head>
+<body>
+    
+    <input type = "button" class="button" value = "전송">
+    <div class= "outline">
+        <div class = "box">
+
+        </div>
+    </div>
+
+</body>
+</html>

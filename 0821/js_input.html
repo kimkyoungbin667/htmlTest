@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "text" name="" id="">
+    
+    <script>
+
+        console.log() //f12 개발자 도구에서의 로그 확인
+        
+        //자바 스크립트 변수 타입 (데이터타입은 아님)
+        // var, let, const 
+        //형식 : 변수타입 변수명 = 값;
+        var v1 = 'banana';
+        console.log(v1);
+
+        //var 특징 (재선언 가능)
+        //근데 데이터 손실이 일어나기떄문에 사용을 잘 안함
+        var v1 = "apple";
+        
+        //let 특징 (재선언 불가)
+        let le1 = "good";
+        //let le1 = "apple"치는건 불가능
+
+        //const : 상수
+        const con1 = "상수";
+        //con1 = '111'; const로 저장됐기에 변경 불가
+        console.log(con1);
+        
+        //null, undefined 
+        //if(dd == 'undefined' || dd == null)인지 확인이 필요할떄도 있음
+        //null : 값이 없음 / undefined : 값이 할당되지 않았을때
+        
+        let str = 'abc';
+        typeof(str);
+        console.log('a','b'); //,로 a와 b를 연결
+        console.log(typeof(str),str);
+
+        //데이터타입 변환
+        let num = '100'; // '100'*1로 하면 숫자형으로, 
+                        // 100+''로 하면 문자형으로 변환
+        console.log(typeof(num), num);
+
+        //Number(): 숫자 인식
+        console.log(typeof(Number('1.2')), Number('1.2'));
+
+        //parseInt() : 숫자 인식 (정수로 만듬)
+        console.log(typeof(parseInt('1.2')), parseInt('1.2'));
+
+        //parseFloat(): 숫자 인식 (실수형)
+        console.log(typeof(parseFloat('1')), parseFloat('1'));
+
+        //String() : 문자로 인식
+        console.log(typeof(String(12)), String(12));
+
+        //논리 (true, false)
+        console.log(typeof(Boolean(true)), Boolean(true));
+
+    </script>
+</body>
+</html>

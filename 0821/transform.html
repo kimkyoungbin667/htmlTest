@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+
+    <style>
+        .outline, .box {
+            width: 60px;
+            height: 60px;
+            
+        }
+
+        .outline {
+            margin-top: 20px;
+            border: 3px solid yellow;
+        }
+
+        .box {
+            background-color: deepskyblue;
+        }
+
+        .translate {
+            /* X축에서 오른쪽으로 50px만큼 이동 */
+            transform: translateX(50px);
+        }
+
+        .translate1 {
+            /* X축에서 오른쪽으로 50px만큼 이동 */
+            transform: translateX(50px);
+        }
+
+        .translate2 {
+            /* X축에서 왼쪽으로 50px만큼 이동 */
+            transform: translateX(-50px);
+        }
+
+        .translate3 {
+            /* translate(X축, Y축) */
+            transform: translate(50px, 50px);
+        }
+
+        .translate4 {
+            transform: translateY(-100px);
+        }
+
+        /* ------- scale --------- */
+
+        .scale {
+            /* 사이즈를 0.5%로 함  원래는 1임 */
+            transform: scale(0.5);
+        }
+
+        .scale1 {
+            /* 사이즈를 1.5%로 함  원래는 1임 */
+            transform: scale(1.5);
+        }
+
+        .scaleX {
+            /* 너비만 줄이고 싶을때 */
+            transform: scaleX(0.5);
+        }
+
+        .scaleY {
+            /* 높이만 줄이고 싶을때 */
+            transform: scaleY(0.5);
+        }
+
+        /* --------- rotate ---------- */
+
+        .rotate {
+            /* 회전시킴.  +는 오른쪽으로, -는 왼쪽으로 회전함 */
+            transform: rotate(40deg);
+        }
+
+        /* 원근감 설정 */
+        .parOutline {
+            perspective: 1px;
+        }
+
+        /* X축으로 1deg만큼 당김 */
+        .rotateX {
+            transform: rotateX(1deg);
+        }
+
+        /* ----------- skew ------------ */
+        .skew {
+            /* X축으로 15, Y축으로 20 */
+            transform: skew(15deg, 20deg);
+        }
+
+        .skew1 {
+            transform: skewX(25deg);
+        }
+
+        .skew2 {
+            transform: skewY(25deg);
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- 도형 이동시키기 : translate -->
+    <h1>translate</h1>
+    <div class = "outline">
+        <div class="box translate1"></div>
+    </div>
+
+    <div class = "outline">
+        <div class="box translate3"></div>
+    </div>
+
+    <div class = "outline">
+        <div class="box translate3"></div>
+    </div> <br>
+    <hr>
+
+    <!-- 도형의 사이즈 변경 -->
+    <h1>Scale</h1>
+
+    <div class = "outline">
+        <div class="box scale"></div>
+    </div>
+
+    <div class = "outline">
+        <div class="box scale1"></div>
+    </div>
+    
+    <div class = "outline">
+        <div class="box scaleX"></div>
+    </div>
+
+    <div class = "outline">
+        <div class="box scaleY"></div>
+    </div>
+
+    <br><hr>
+
+    <!-- 도형 회전시키기  -->
+    <h1>Rotate</h1>
+
+    <div class = "outline">
+        <div class="box rotate"></div>
+    </div>
+
+    <div class = "outline parOutline">
+        <div class="box rotateX"></div>
+    </div> <br> <hr>
+
+    <!-- 모양 새롭게 바꾸기? -->
+    <h1>Skew</h1>
+
+    <div class = "outline">
+        <div class="box skew"></div>
+    </div>
+
+    <div class = "outline">
+        <div class="box skew1"></div>
+    </div>
+
+    <div class = "outline">
+        <div class="box skew2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* p와 ul이 바로 옆에 있어야함 */
+        /* 인접형제 식별자 */
+        section > p+ul>li {
+            margin: 5px;
+            border: 2px solid blue;
+        }
+
+        /* p부터 ul까지 그 사이에 있는 애들은 다 적용 */
+        section > p ~ ul {
+            border: 2px solid green;
+
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>out1</li>
+    </ul>
+    <section>
+        <p>p태그 입니다</p>
+        <ul>
+            <li>섹션안 리스트1</li>
+            <li>섹션안 리스트2</li>
+            <ul>
+                <li>섹션안 ul 안 리스트3-1</li>
+                <li>섹션안 ul 안 리스트3-2</li>
+            </ul>
+        </ul>
+
+        <ul>
+            <li>섹션안 리스트1</li>
+            <li>섹션안 리스트2</li>
+            <ul>
+                <li>섹션안 ul 안 리스트3-1</li>
+                <li>섹션안 ul 안 리스트3-2</li>
+            </ul>
+        </ul>
+
+    </section>
+</body>
+</html>

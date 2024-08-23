@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            background-color: aliceblue;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <br>
+    <div>
+        <input type="text" name="" id="dan">
+        <input type="text" name="" id="num">
+        <input type="button" value="결과 출력" onclick="cul()">
+
+        <div id = "result"></div>
+    </div>
+    
+
+    <script>
+        function cul(){
+            let nums = document.getElementsByTagName('input'); //[dan, num]
+            let resultSpan = document.getElementById('result');
+
+            let str = '';
+            for(let i = 1; i <= nums[1].value; i++){
+                str += '<table>';
+                str += '<tr><td>'+ nums[0].value+'x'+i+'='+nums[0].value*i+'</td></tr><br>';
+            }
+            str += '</table>';
+            resultSpan.innerHTML = str;
+
+        }
+
+    </script>
+</body>
+</html>

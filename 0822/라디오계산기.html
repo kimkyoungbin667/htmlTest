@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type = "text" id = "n1"> 
+
+    <input type = "radio" name = "nat" value="+">+
+    <input type = "radio" name = "nat" value="-">-
+    <input type = "radio" name = "nat" value="*">*
+    <input type = "radio" name = "nat" value="/">/
+    <br>
+
+    <input type = "text" id = "n2"> 
+
+    <input type = "button" value = "계산" onclick="result()"> <br>
+    <input type = "text" id = "result">
+
+    <script>
+        function result() {            
+            let n1 = document.getElementById('n1');
+            let n2 = document.getElementById('n2');
+
+            let choice = document.getElementsByName('nat');
+            let result = document.getElementById('result');
+                 
+            for(let i = 0; i<choice.length; i++){
+
+                if(choice[i].checked) {
+                    switch(choice[i].value) {
+                case '+':
+                    result.value = Number(n1.value)+Number(n2.value);
+                    break;
+                case "-":
+                    result.value = Number(n1.value)-Number(n2.value);
+                    break;
+                case "*":
+                    result.value = Number(n1.value)*Number(n2.value);
+                    break;
+                case "/":
+                    result.value = parseFloat(Number(n1.value)/Number(n2.value));
+                    break;
+            }
+                }
+
+            }
+            
+        }
+    </script>
+
+</body>
+</html>

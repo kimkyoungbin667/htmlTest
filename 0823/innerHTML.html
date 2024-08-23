@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML</title>
+
+    <style>
+        .color {
+            color : blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 클릭을 했을때 HTML 태그가 만들어지도록 설정 -->
+    <input type="button" value="클릭" onclick="c()">
+    <div id="result">
+
+
+    </div>
+
+    <script>
+
+        function c() {
+            let str = '';
+            for(let i =0; i<10; i++){
+                str += '<span class = "color">Hello World' + i + '</span><br>';
+            }
+            document.getElementById('result').innerHTML = str;
+
+        }
+
+
+        function create() {
+            alert('test');
+            //test 경고창 띄우고 아이디가 result인 곳에 ''안에 있는 구문 실행
+            document.getElementById('result').innerHTML = '<span class = "color">Hello World</span>';
+        }
+    </script>
+</body>
+</html>

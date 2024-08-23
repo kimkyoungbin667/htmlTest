@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>좋아하는 국가는?</h1>
+
+    <!-- 네임으로 그룹을 판단 -->
+    <input type = "radio" name = "nat" value="대한민국">대한민국
+    <input type = "radio" name = "nat" value="중국">중국
+    <input type = "radio" name = "nat" value="일본">일본
+    <input type = "radio" name = "nat" value="미국">미국
+    <br>
+
+    <input type = "button" value = "선택" onclick="result()">
+
+    <script>
+        
+        function result() {
+            //이름이 nat인 항목들을 다 가지고 옴 (배열로)
+            //라디오는 항상 리턴을 배열로 갖고옴
+            let choice = document.getElementsByName('nat');
+            
+            for(let i = 0; i<choice.length; i++){
+            
+                if(choice[i].checked){
+                    console.log(choice[i].value);
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>

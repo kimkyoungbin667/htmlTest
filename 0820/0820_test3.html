@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 띄어쓰기 시 section태그 안에 li인 애들만 적용 */
+        section li {
+            color : blue;
+        }
+
+        section p {
+            color : red;
+        }
+
+        /* 꺽쇄는 자식을 의미함 */
+        section>ul>li {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <ul>
+        <li>out1</li>
+    </ul>
+    <section>
+        <p>p태그입니다</p>
+        <ul>
+            <li>섹션안 리스트1</li>
+            <li>섹션안 리스트2</li>
+            <ul>
+                <li>섹션안 ul 안 리스트3-1</li>
+                <li>섹션안 ul 안 리스트3-2</li>
+            </ul>
+        </ul>
+    </section>
+</body>
+</html>

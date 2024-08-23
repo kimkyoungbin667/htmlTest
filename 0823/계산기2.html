@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type = "text" placeholder="첫 번째 수">
+
+    <select>
+        <option value = "+">+</option>
+        <option value = "-">-</option>
+
+    </select>
+
+    <input type = "text" placeholder="두번째 수">
+    <input type="button" value="계산" onclick="result()"> <br>
+    <!-- <input type="text" placeholder="결과 출력"> -->
+
+    <!-- 결과입력 -->
+     <span id = "res">
+     </span>
+
+    <script>
+
+        function result(){
+            let res = document.getElementById('res');
+            let option = document.getElementsByTagName('select');
+            let nums = document.getElementsByTagName('input');
+            
+            if(option[0].value == '+'){
+                res.innerText= Number(nums[0].value) + Number(nums[1].value);
+            } else if(option[0].value == '-'){
+                res.innerText = Number(nums[0].value) - Number(nums[1].value);
+            }
+        }
+        
+        
+        
+
+
+    </script>
+</body>
+
+</html>
