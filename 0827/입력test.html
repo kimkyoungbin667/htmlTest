@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" id="id" placeholder="입력">
+    <input type="button" value="클릭" onclick="send()">
+    <span id="result">출력</span> -->
+<!-- 
+    <select id="menu01" onchange="box()">
+        <option value="coffee">커피</option>
+        <option value="cake">케이크</option>
+    </select> 
+
+    <select id="menu02"> 
+
+    </select> -->
+
+    <select id="choiceFood" onchange="changeImg()">
+        <option value = "1">김치</option>
+        <option value = "2">배추</option>
+        <option value = "3">토마토</option>
+    </select>
+
+    <div id = "img">
+    </div>
+
+    <script>
+
+    changeImg();
+        // box();
+
+        function send() {
+            let input_val = document.getElementById('id');
+            let result = document.getElementById('result');
+            
+            result.innerText=input_val.value;
+            //html의 text출력은 innerText 혹은 innerHTML이 담당함
+        }
+
+        function box() {
+            let menu01 = document.getElementById('menu01');
+            let menu02 = document.getElementById('menu02');
+            
+            str = ""
+            if(menu01.value=="coffee") {
+                str+= '<option>아메리카노</option>';
+                str+= '<option>캬라멜마끼아또</option>';
+                str+= '<option>라떼</option>';
+                menu02.innerHTML = str;
+            } else if (menu01.value=="cake") {
+                str+= '<option>치즈케이크</option>';
+                str+= '<option>초코케이크</option>';
+                menu02.innerHTML = str;
+            }
+        }
+
+        // function box(e){
+        //     let menu01 = document.getElementById('menu01');
+        //     let menu02 = document.getElementById('menu02');
+
+        //     console.log(e.target);
+        // }
+
+        function changeImg() {
+            let choice = document.getElementById('choiceFood');
+            let img = document.getElementById('img');
+
+            str = "";
+
+            if(choice.value=="1") {
+                str += "<img src = '../kimchi.jpg'>";
+                img.innerHTML = str;
+            } else if(choice.value=="2") {
+                str += "<img src = '../bu.jpg'>";
+                img.innerHTML = str;
+            } else if(choice.value=="3") {
+                str += "<img src = '../tomato.jpg'>";
+                img.innerHTML = str;
+            }
+        }
+    </script>
+
+</body>
+</html>

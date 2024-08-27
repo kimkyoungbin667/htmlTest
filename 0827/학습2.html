@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경빈이 귀여워</title>
+</head>
+<body>
+    
+    <select id = "choiceFood" onchange="changeImage(event)">
+        <option value="1">김치</option>
+        <option value="2">배추</option>
+        <option value="3">토마토</option>
+    </select>
+    <br>
+
+    <img id="displayImage" src="../bu.jpg" alt="음식사진">
+
+    <script>
+
+        const imgArr = ['../kimchi.jpg', '../bu.jpg', '../toma.jpg']
+
+        // function changeImage(e) {
+        //     document.querySelector("#displayImage").src = imgArr[e.target.value];
+        // }
+
+        document.querySelector('select').addEventListener('change', function(e){
+            document.querySelector("#displayImage").src = imgArr[e.target.value];
+        });
+
+        function choice() {
+            let choices = document.querySelectorAll('choiceFood');
+
+            for(let i = 0; i < choices.length; i++){
+                console.log(choices[i].value);
+                if(choices[i].value=='1'){
+                    console.log('1');
+                }
+            }
+        }
+
+    </script>
+
+
+
+</body>
+</html>
