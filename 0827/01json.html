@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "button" value="출력" onclick="cul()">
+    <!-- <span id = "result">여기에 출력</span> -->
+
+    <input type = "text" id = "n1">
+    <input type = "text" id = "n2">
+
+    <script>
+        let obj1 = {} //중괄호(오브젝트)
+        let obj = new Object();
+        let values = new Object();
+
+        // obj1.a = 'apple';
+
+        // obj1.fun = start; 
+
+        // let arr = ['a','b','c'];
+        // obj1.arr = arr;
+        // console.log(obj1);
+
+        let obj2 = new Object();
+
+        //arr[0] 괄호안에 숫자가 들어가면 index로 인식
+        //arr['0'] 괄호안에 문자가 들어가면 key로 인식
+
+        // obj2['apple'] = 'apple';
+        // obj2['b'] = 'banana';
+        // console.log(obj2);
+        // console.log('===============');
+        
+        console.log(obj1);
+
+        obj2.address = '서울';
+        obj1.obj = obj2;
+        //obj1['address'] = obj2['address'];
+
+        // obj1.fun();
+
+        console.log(typeof(obj1), obj1);
+
+        function start() {
+            console.log('start');
+        }
+
+        function obj_print() {
+            document.getElementById('result').innerHTML = obj1['address'];
+        }
+
+        function cul() {
+            let n1 = document.getElementById('n1');
+            let n2 = document.getElementById('n2');
+            values['plus'] = Number(n1.value) + Number(n2.value);
+            values['minus'] = Number(n1.value) - Number(n2.value);
+            values['divide'] = Number(n1.value) / Number(n2.value);
+            values['multi'] = Number(n1.value) * Number(n2.value);
+            
+            console.log(values);
+        }
+    </script>
+
+</body>
+</html>

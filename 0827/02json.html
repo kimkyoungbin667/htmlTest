@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" name="" id="n1">
+    <input type="text" name="" id="n2">
+    <input type="button" value="계산" onclick="click1()">
+
+    <script>
+
+        //html에서 계싼버튼 누르면 실행
+        function click1() {
+
+            let num1 = document.getElementById('n1').value;
+            let num2 = document.getElementById('n2').value;
+
+            let obj = new Object(); // {}도 같음
+
+
+            obj.plus = Number(num1) + Number(num2);
+            obj.minus = num1 - num2;
+            obj.mul = num1*num2;
+            //똑같은 key를 두번실행하면 마지막값이 저장됨
+            obj.div = num1/num2;
+            obj.div = (num1>num2) ? num1/num2 : num2/num1;
+
+            console.log(obj);
+            
+            
+            
+        }
+    </script>
+</body>
+</html>

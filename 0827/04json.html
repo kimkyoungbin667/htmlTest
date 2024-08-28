@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="button" value="전체" onclick="result('all')">
+    <input type="button" value="서울" onclick="result('서울')">
+    <input type="button" value="부산" onclick="result('부산')">
+    <input type="button" value="대구" onclick="result('대구')">
+
+    <script>
+    let obj = {
+        list: [
+            {
+                address: '서울',
+                food: '불고기',
+                population: '많음'
+            },
+            {
+                address: '부산',
+                food: '어묵',
+                population: '많음'
+            }
+            ,
+            {
+                address: '대구',
+                food: '막창',
+                population: '적당함'
+            }
+        ]
+    }
+
+    //배열로 변경함
+
+
+    function result(address){
+
+        console.log('버튼클릭함=====');
+
+        let list = obj.list;
+        for(let i = 0; i<list.length; i++){
+
+            // ==은 값이 같을때 true (js는 데이터 타입 구분이 없어서 1=='1' 도 참이 됨)
+            // ===은 값이 같고 타입도 같을때 true, -> 1 == '1'은 false나옴
+            if(address === list[i].address || address === 'all') {
+                console.log(['address', list[i].address]);
+                console.log(['food', list[i].food]);
+                console.log(['population', list[i].population]);
+            } 
+
+            
+        }
+    }
+    
+    </script>
+</body>
+</html>

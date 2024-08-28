@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐릭터 고르기</title>
+
+    <link href="home.css" rel = "stylesheet">
+
+    <style>
+    #main {
+        width: 300px;
+        height: 400px;
+        background-size: 100% 100%;
+    }
+
+    img {
+        width: 300px;
+        height: 300px;
+    }
+
+    </style>
+
+</head>
+<body>
+    <h1>캐릭터 고르기</h1>
+    <hr>
+    <div id="main"></div>
+
+    <input type="button" value="전체" onclick="choice('all')">
+    <input type="button" value="케로로" onclick="choice('geguri')">
+    <input type="button" value="오버워치" onclick="choice('overwatch')">
+    <div id = "pictures"></div>
+
+
+    <script>
+
+        const pic =[
+            {pic:'../keroro.jpg', category: 'geguri'},
+            {pic:'../dororo.jpg', category: 'geguri'},
+            {pic:'../kururu.jpg', category: 'geguri'},
+
+            {pic:'../over_ripper.jpg', category: 'overwatch'},
+            {pic:'../over_rucio.jpg', category: 'overwatch'},
+            {pic:'../over_sime.jpg', category: 'overwatch'}
+        ];
+
+        
+        function choice(e) {
+
+            
+
+            str = "";
+            if(e == 'all') {
+                for(let i = 0; i<pic.length; i++) {
+                    str += '<img src ="' + pic[i].pic + '" onclick = "char_clicked(' + i + ')">';
+                }
+                document.getElementById('pictures').innerHTML = str;
+            } else if(e=='geguri') {
+                for(let i = 0; i<pic.length; i++) {
+                    if(pic[i].category=='geguri'){
+                        str += '<img src ="' + pic[i].pic + '" onclick = "char_clicked('+ i +')">';
+                    }
+                }
+                document.getElementById('pictures').innerHTML = str;
+                
+            } else if(e== 'overwatch'){
+                for(let i = 0; i<pic.length; i++) {
+                    if(pic[i].category=='overwatch'){
+                        str += '<img src ="' + pic[i].pic + '" onclick = "char_clicked('+ i+')">';
+                    }
+                }
+                document.getElementById('pictures').innerHTML = str;
+            }
+        }
+
+
+        function char_clicked(i) {
+
+            document.getElementById('main').style.backgroundImage = 'url( "'+ pic[i].pic + '")'; 
+        }
+
+    </script>
+
+</body>
+</html>
