@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시계</title>
+</head>
+<body>
+    
+    <script>
+        
+        //시계(날짜 함수)
+        //현재 PC 기준으로 날짜를 정의. (클라이언트 기준, 서버에 저장시 활용X)
+        let today = new Date();
+        
+        console.log('년도', today.getFullYear());
+        console.log('월',today.getMonth()+1); //월은 0부터 시작임 그래서 +1해야함
+        console.log('요일', today.getDate());
+        console.log(today);
+        
+        //1초마다 계속해서 반복 실행
+        ////setInterval(함수 ,몇초마다 반복할 것(int초))
+        
+        setInterval(function() {
+            let today = new Date();
+            console.log(String(today.getHours()), '-', String(today.getMinutes()),'-',String(today.getSeconds()));
+        }, 1000); //1000은 1초 (ms임)
+
+    </script>
+
+</body>
+</html>

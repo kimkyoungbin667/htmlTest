@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // setTimeOut
+        // setTimeout(함수, 몇초뒤에 실행할것인지(int))
+
+        
+        // 2초 간격으로 무한 실행
+        clock();
+        function clock() {
+            setTimeout(function(){
+                alert('test');
+                clock();
+            },2000);
+        } 
+
+        // setTimeout(function() {
+        //     alert('time');
+        // },5000); //5000 (5초)뒤에 자동실행
+
+
+    </script>
+</body>
+</html>

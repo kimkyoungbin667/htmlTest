@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: wheat;
+            margin:0;
+        }
+
+        #container {
+            width:400px;
+            height: 400px;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        h3 {          
+            display: block;  
+            text-align: center;
+            color: #FFCD28	;
+        }
+
+        input {
+            display: block;
+            width:70%;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 25px;
+            text-align: center;
+            margin:auto;
+            margin-top: 20px;
+        }
+
+    </style>
+
+</head>
+<body id = "all">
+    <div id = "container">
+        <h1>반응속도 테스트(1~5초)</h1>
+        <h3 id = "time">반응속도 : </h3>
+
+        <div id = "btnArea">
+            <input type = "button" value = "시작하기" onclick="gameStart()" >
+        </div>
+   
+    </div>
+ 
+    <script>
+        var changeColorTime = 0;
+        var clickedTime = 0;
+        let randomTime = 0;
+
+        function gameStart() { 
+            str = "";
+            // 1~5초 사이의 랜덤초
+            randomTime = parseInt(Math.random(5)*5+1);
+            clickedTime = new Date();
+            
+            document.getElementById('btnArea').innerHTML = "<input type = 'button' value = '속도 측정 버튼!' onclick = 'checkTime()'>";
+            
+            console.log("랜덤초 : ", randomTime);
+            changeColor();
+        }
+
+        function changeColor() {
+            setTimeout(function(){
+                let body = document.getElementsByTagName('body');
+                body[0].style.backgroundColor = "red";
+                changeColorTime = new Date();
+                
+                },randomTime*1000);
+        }
+
+        function checkTime() {
+            clickedTime = new Date();
+            let yourSpeed = clickedTime - changeColorTime;
+            yourSpeed /= 1000;
+            
+            document.getElementById('time').innerHTML = "<h3 id = 'time'>반응속도 : " + yourSpeed + "</h3>";
+            document.getElementById('btnArea').innerHTML = "<input type = 'button' value = '다시하기' onclick = 'resetGame()'>";
+        
+
+        }
+
+        function resetGame() {
+            let body = document.getElementsByTagName('body');
+            body[0].style.backgroundColor = "wheat";
+            document.getElementById('time').innerHTML = "<h3 id = 'time'>반응속도 :";
+            document.getElementById('btnArea').innerHTML = "<input type = 'button' value = '시작하기' onclick = 'gameStart()'>";
+            isRunning = false;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="add"></div>
+
+    <script>
+        //함수 선언식, 함수 표현식
+
+        //함수 선언식 (명시적으로 함수라고 선언하겠다.)
+        start();
+        function start() {
+            console.log('start');
+        }
+
+        //함수 표현식
+        let fn02 = function() {
+            console.log('변수');
+        }
+
+        fn02();
+
+        // 함수 표현식 ES6 (2015년 이전 버전의 IE 동작안됨 -> 공무원 PC같은 국가사업에서는 사용 지양)
+        let fn03 = () => {
+            console.log('fn03');
+        }
+        fn03();
+
+        function start02(n1){
+            console.log('start02:', n1);
+        }
+
+        // 매개변수가 1개면 () 생략 가능
+        let fn04 = n1 => {
+            console.log('n1', n1);
+        }
+
+
+        // 함수 표현식을 사용할때는 무조건 함수가 우선적으로 선언되야함
+        // 함수 표현식을 적고 그 다음에 함수를 호출해야함
+        function start03(n1, n2){
+            console.log(n1+n2);
+        }
+
+        // 매개변수가 2개면 () 생략 불가
+        let fn05 = (n1,n2) => {
+            console.log(n1+n2);
+        }
+
+        //CallBack 함수 (콜백함수)
+        document.querySelector('.add').addEventListener('click', function() {});
+        document.querySelector('.add').addEventListener('click', start);
+
+    </script>
+
+</body>
+</html>
