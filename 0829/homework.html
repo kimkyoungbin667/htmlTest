@@ -126,7 +126,6 @@
         }
     </style>
 
-    
 
 </head>
 
@@ -167,12 +166,15 @@
 
     <script>
         var imsi = $('#city06');
-
         
-
         //그외 체크박스 누를시 텍스트 상자 활성화
-        $('#city06').on('click', function(){
-            $('#inp_bestCity').prop('disabled', false); 
+        $('input[name="bestCity"]').on('click', function(){
+            if($('#city06').is(':checked')) {
+                $('#inp_bestCity').prop('disabled', false); 
+            } else {
+                $('#inp_bestCity').val("");
+                $('#inp_bestCity').prop('disabled', true); 
+            }
         });
 
         function send() {
@@ -194,12 +196,34 @@
                 alert('좋아하는 이유를 하나 이상 골라야합니다!');
                 return ;
             }
+            let res;
+            if($('#city06').is(':checked')) {
+                res = 
+                    {'name1':name, 
+                    'city':$('#inp_bestCity').val(),
+                    'arr': new Array()
+                }
+            } else {
+                res = 
+                    {'name1':name, 
+                    'city':like_city.val(),
+                    'arr': new Array() 
+                }
+            }
 
+            for(let k = 0; k<like_reason.length; k++){
+                res.arr.push(like_reason[k]);
+            }
+                        
             alert('설문조사 완료!');
-
+            console.log('참여자 : ', res.name1);
+            console.log('좋아하는 도시 : ', res.city);
+            console.log('좋아하는 이유 : ');
+            for(let i = 0; i<res.arr.length; i++){
+                console.log(i+1,"번 : ", res.arr[i].value);
+            }
+            
         }
-
-
         function reset() {
             $('#userName').val("");
             $('#inp_bestCity').val("");
@@ -207,6 +231,10 @@
             $('input[name="bestReason"]').prop('checked', false); 
             $('#inp_bestCity').prop('disabled', true); 
         }
+
+
+
+    
     </script>
 </body>
 

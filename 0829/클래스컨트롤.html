@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 만들기</title>
+    <style>
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .yello {
+            background-color: yellow;
+        }
+
+        .dd {
+            margin: 15px;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border: 1px solid #000;
+        }
+    </style>
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+</head>
+
+<body id="body">
+    <input type="radio" name="color" value="red">빨강색
+    <input type="radio" name="color" value="yello">노랑색
+    <input type="radio" name="color" value="blue">파랑색
+    <input type="radio" name="color" value="green">초록색
+    <br />
+    <div name="dd" class="dd"></div>
+    <div name="dd" class="dd"></div>
+    <div name="dd" class="dd"></div>
+    <div name="dd" class="dd"></div>
+
+    <script>
+
+        
+        //클래스 추가하기
+        $('input[name="color"]').on('change', function() {
+            let val = $('input[name="color"]:checked').val();
+
+            //존재 확인
+            // $('대상').hasClass('검색할 클래스 명') -> True/False 반환
+            let blue = $('div.dd').hasClass('blue');
+            console.log(blue);
+            //클래스 지우기 -> 만약 removeClass(안에 아무것도 선언안돼있을경우 클래스 모두 제거)
+            // $('div.dd').removeClass(['red','blue','green','yellow']); -> 이건 배열안에 대상 클래스만 제거
+            $('div.dd').removeClass(['red','blue','green','yellow']);    
+
+            //$('대상').addClass(클래스명) 
+            //$('대상').addClass([클래스명1, 클래스명2]);
+            $('div.dd').addClass(val); 
+        });
+        
+
+    </script>
+</body>
+
+</html>

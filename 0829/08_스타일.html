@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 만들기2</title>
+    <style>
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .yello {
+            background-color: yellow;
+        }
+
+        .dd {
+            margin: 15px;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <input type="radio" name="color" value="red">빨강색
+    <input type="radio" name="color" value="yellow">노랑색
+    <input type="radio" name="color" value="blue">파랑색
+    <input type="radio" name="color" value="green">초록색
+    <br />
+    <div name="dd" class="dd"></div>
+    <div name="dd" class="dd"></div>
+    <div name="dd" class="dd"></div>
+    <div name="dd" class="dd"></div>
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+    <script>
+        $('input[name="color"]').on('change', function() {
+            let color = $('input[name="color"]:checked').val();
+            //css(css명칭, css값);   ex) css(background-color, red);
+            //font-size 같은 경우 '-'는 사용이 안돼서, camelCase문법으로 변경해서 쓰기ㅏ
+            //즉, font-size를 fontSize로 쓰기
+            $('div.dd').css('backgroundColor', ''); 
+            $('div.dd').css('backgroundColor', color);
+        }) ;  
+    </script>
+</body>
+
+</html>
