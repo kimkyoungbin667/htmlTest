@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input 창</title>
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <input type="text" id="n1">
+    <input type="text" id="n2">
+    <input type="button" value="전송" onclick="send()">
+    <input type="button" value="값 만들기" onclick="hello()">
+
+    <script>
+
+        function send() {
+            let n1 = document.getElementById('n1').value;
+            let n2 = $('#n2').val();
+
+            console.log('plus', Number(n1)+Number(n2));
+        }
+
+        function hello() {
+            document.getElementById('n1').value = "hello";
+            $('#n2').val('Hello'); //값에 Hello 입력
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input {
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <input type="text" id="user" value = "hello">
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+
+    <script>
+
+        //아이디가 user인 값 불러오기
+        let jq = $('#user').val();
+        // console.log(jq);
+
+        //JS, Jquery 비교
+
+        //Jquery
+        console.log($('#user'));
+
+        //JS
+        console.log(document.querySelectorAll('#user'));
+
+        //$('#user');가  document.querySelectorAll('#user'); 이거 요약한거임
+
+        console.log($('input').val());
+
+        //Jquery와 JS는 서로 병행해서 사용해도 됨
+        //Jquery는 JS의 코드를 요약해서 사용하기 떄문에
+        //Jquery는 불러올때 '$'를 통해서 불러옴 (이 기능도 자동이 있음)
+        //'$'로 불러올때 동일한 값들이 있으면 배열로 불러옴 (만약 값이 한개일경우 단일로 인식됨)
+
+        //JS와 Jquery를 비교했을때 우선순위는 JS임
+        //JS(바닐라) => Jquery, react, vue
+        //퍼포먼스는 무슨언언든 비슷함. 애매하게 배웠을땐 JS가 속도가 더빠름
+        
+        
+
+
+        
+
+    </script>
+</body>
+</html>

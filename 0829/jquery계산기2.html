@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기1</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* margin 영역 */
+        .mar15 {
+            margin: 15px;
+        }
+
+        .wid70 {
+            width: 70px;
+        }
+
+        .wid100 {
+            width: 100px;
+        }
+
+        /* color 영역 */
+        .color-whilte {
+            color: white;
+        }
+
+        .inp01 {
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .inpH:hover,
+        .inpH:focus {
+            border: 3px solid #3CB371;
+            /* hover와 focus 상태에서의 테두리 색상 변경 */
+            outline: none;
+            /* focus 문제 해결 */
+        }
+
+        .btn-cyan {
+            background: rgba(27, 188, 194, 1);
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(27, 188, 194, 1)), to(rgba(24, 163, 168, 1)));
+            background: -webkit-linear-gradient(rgba(27, 188, 194, 1) 0%, rgba(24, 163, 168, 1) 100%);
+            background: -moz-linear-gradient(rgba(27, 188, 194, 1) 0%, rgba(24, 163, 168, 1) 100%);
+            background: -o-linear-gradient(rgba(27, 188, 194, 1) 0%, rgba(24, 163, 168, 1) 100%);
+            background: linear-gradient(rgba(27, 188, 194, 1) 0%, rgba(24, 163, 168, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1bbcc2', endColorstr='#18a3a8', GradientType=0);
+        }
+
+        .cur {
+            cursor: pointer;
+        }
+        
+        .result {
+            font-size: 25px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+</head>
+
+<body class="main">
+    <h1 class="mar15">계산기</h1>
+    <input type="text" class="inp01 mar15 inpH" id="n1">
+    <select class="inp01 wid70 inpH">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" class="inp01 mar15 inpH" id="n2">
+    <input type="button" class="inp01 wid100 btn-cyan mar15 color-whilte cur" value="전송" ><br/>
+    <span class="mar15 result">결과출력: </span> <input type="text" id = "result_val">
+
+    <script>
+        //보통 JS에서 onclick을 html에서 선언함 (default)
+        //html에서 eventHandler를 선언하고 싶지 않을때는
+        // document.querySelector('input[type="button"]').addEventListener('click', function(){});
+        $('input[type="button"]').on('click', function(){
+
+            let input = document.querySelectorAll('input[type="text"]'); //태그가 text인 애들을 다 갖고옴(모두 읽고 해당되는것만 갖고옴)
+            //querySelectorAll은 처음부터 끝까지 값을 확인하는데 값을 찾으면 그만 찾으라고 변수에 담음
+
+            let input2 = $('input[type="text"]');
+
+            console.log('num1 : ',input2[0]);
+            console.log('num2 : ',input2[1]);
+            
+            //Juqery는 불러올때 배열을 들고온다.
+
+            let op = $('select').val(); //배열 한개짜리로 리턴됨 -> val()을 추가하는 순간 배열에서 첫번째 인덱스 값만 들고옴
+            
+            let n1 = input2[0].value * 1;
+            let n2 = input2[1].value * 1;
+
+            let result = 0;
+            switch(op){
+                case '+':
+                    result = n1+n2;
+                    break;
+                case '-':
+                    result = n1-n2;
+                    break;
+                case '/':
+                    n1 = n1^n2;
+                    n2 = n1^n2;
+                    n1 = n1^n2;
+
+                    result = n1/n2;
+                    break;
+                case '*':
+                    result = n1*n2;
+                    break;
+            }
+            
+            input2[2].value = result;
+                                                                        
+        });
+
+        //$한거랑 document.querySelector랑 같음
+
+    </script>
+</body>
+
+</html>
