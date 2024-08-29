@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckBox</title>
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+
+</head>
+<body>
+    <h1>취미</h1>
+    <input type="checkbox" name="hobby" id=hobby01 value="독서"> <label for="hobby01">독서</label>
+    <input type="checkbox" name="hobby" id=hobby02 value="레저"><label for="hobby02">레저</label>
+    <input type="checkbox" name="hobby" id=hobby03 value="게임"><label for="hobby03">게임</label>
+    <input type="checkbox" name="hobby" id=hobby04 value="영화"><label for="hobby04">영화</label>
+    <input type="checkbox" name="hobby" id=hobby05 value="공부"><label for="hobby05">공부</label>
+    <input type="checkbox" name="hobby" id=hobby06 value="숨쉬기"><label for="hobby06">숨쉬기</label> <br><br>
+    <input type="button" value="값 확인하기1" onclick="send1()">
+    <input type="button" value="값 확인하기2" onclick="send2()">
+    <input type="button" value="값 확인하기3" onclick="send3()">
+    <input type="button" value="모두 선택하기" onclick="all()">
+    <input type="button" value="모두 해제하기" onclick="zero()">
+
+    <script>
+
+        function send() {
+            let choices = $('input[name="hobby"]'); //배열로 다 갖고옴
+
+            for(let i = 0; i<choices.length; i++){
+                if(choices[i].checked == true){ 
+                    console.log('선택됨', choices[i].value);
+                }
+            }
+        }
+
+        function send2() {
+            let hobby = $('input[name="hobby"]:checked');
+            let len = $('input[name="hobby"]:checked').length;
+            
+            for(let i =0; i<hobby.length; i++){
+                console.log(hobby[i].value);    
+            }
+
+            console.log(len);
+        }
+
+        function send3() {
+            // 하나라도 체크되었는지 판단
+            if($(this).is(':checked')){
+                console.log('참');
+            }
+            //foreach
+            //function(index) 는 index => { } 라는 말과 같음
+            $('input[name="hobby"]').each(index => {
+                //this는 현재 선택된 hobby를 가리킴
+                //여러 행중에서 자신의 행이 소속된 elements를 this
+                //자기 자신의 check 여부를 판단하는거임
+                if($(this).is(':checked')){
+                    console.log($(this).val());
+                }
+            });
+        }
+
+        function all() {
+            //name이 hobby인 애들의 checked속성을 true로 만듬 (선택)
+            $('input[name="hobby"]').prop('checked', true); 
+        }
+
+        //name이 hobby인 애들의 checked속성을 false로 만듬 (선택해제)        
+        function zero() {
+            
+            $('input[name="hobby"]').prop('checked', false); 
+        }
+    </script>
+</body>
+</html>

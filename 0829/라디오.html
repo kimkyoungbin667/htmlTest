@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>좋아하는 계절</h1>
+
+    <input type="radio" name="season" value="spring">봄
+    <input type="radio" name="season" value="summer">여름
+    <input type="radio" name="season" value="fail">가을
+    <input type="radio" name="season" value="winter">겨울
+
+    <input type="button" value="전송1" onclick="send()">
+    <input type="button" value="전송2" onclick="send2()">
+    <input type="button" value="전송3" onclick="send3()">
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+    <script>
+
+        //JS로  불러오는 방법
+        function send() {
+            let radio = document.getElementsByName('season'); //getElements -> 배열로 리턴
+            
+            //무엇이 선택되었는지 확인하고 싶을때
+            
+            for(let i = 0; i<radio.length; i++){
+                if(radio[i].checked == true){ //if(radio[i].checked) 만 해도됨
+                    console.log('선택됨', radio[i].value);
+                }
+            }
+        }
+
+        //Jquery 방법
+        function send2() {
+            //선택자가 name을 통해 따로 불러오는 방법이 없기때문에
+            //무엇이 선택되었는지 확인해야함
+
+            //위의 방법이 싫을때는 임시로 Class를 만들기
+            //ex) $('.inputRadio') 이런식으로 불러오기 
+            let radio = $('input[name="season"]'); //배열로 다 갖고옴
+
+            for(let i = 0; i<radio.length; i++){
+                if(radio[i].checked == true){ 
+                    console.log('선택됨', radio[i].value);
+                }
+            }
+        }
+
+        function send3() {
+            //CSS에서는 input[name="season"]:checked => input에서 체크된 input만 불러옴
+            let result = $('input[name="season"]:checked').val();
+
+            console.log('선택된 결과', result);
+        }
+    </script>
+
+</body>
+</html>
