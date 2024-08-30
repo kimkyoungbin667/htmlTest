@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+</head>
+<body>
+
+    <input type="button" value="전송" onclick="send()">
+
+    <script>
+        
+        // 버튼 클릭시 
+        function send() {
+            $.ajax({
+                // 다른PC(서버)에게 데이터를 요청하는 함수
+                //ajax는 사용할때 Jquery 라이브러리를 이용해서 사용
+                //Jquery 언어를 사용할때는 ajax 사용을 지향함 (호환성 문제)
+
+                // url에 get방식으로 주고 성공시 아래 함수 호출
+                url:'https://jsonplaceholder.typicode.com/posts', //요청 대상 (웹을 하고 있기 때문에 url로 요청) -> 저 사이트로 요청함
+                type: 'get', //전송 방식 (GET, POST 방식)
+                
+                //요청했던 사이트로 부터 결과물을 받을때 언어에게 어떤 방식으로 주는 것인지 hint를 주는것임 (강제로 json으로 변경되게 할 수있음)
+                dataType: 'json', //default값은 String
+                success: function(res) {
+                    console.log(res);
+                }
+            })
+        }
+        
+
+    </script>
+</body>
+</html>
