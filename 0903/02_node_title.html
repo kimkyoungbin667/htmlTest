@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="button" value="페이지 이동" onclick="move()">
+    <input type="button" value="ajax 호출" onclick="btn1()">
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+    
+    <script>
+
+        //페이지 이동
+        function move() {
+            location.href = '02_node_title.html';
+        }
+
+        function btn1() {
+            $.ajax({
+                url: 'http://localhost:3000/db',
+                type: 'get',
+                dataType: 'json',
+
+                success: function(res) {
+                    console.log(res);
+                    if(res.status == 200) {
+                        let list = res.list;
+                        console.log(list);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

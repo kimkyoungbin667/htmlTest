@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bootstrap + ajax</title>
+    <link href="../assets/css/bootstrap.css">
+    <script src="../assets/js/bootstrap.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <button type="button" onclick="getBtn()" class="btn btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-outline-secondary">Secondary</button>
+    <button type="button" onclick="callB()" class="btn btn-outline-success">Success</button>
+    <button type="button" class="btn btn-outline-danger">Danger</button>
+    <button type="button" class="btn btn-outline-warning">Warning</button>
+    <button type="button" class="btn btn-outline-info">Info</button>
+    <button type="button" class="btn btn-outline-light">Light</button>
+    <button type="button" class="btn btn-outline-dark">Dark</button>
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+    <script>
+
+        // callback 
+        // 중복된 코드를 최소화 시키는 것이 주 목적
+        // ★★ 특징은 매개변수에 함수가 들어감 
+        // 
+        function callB() {
+           cb(first);
+        }
+
+        function first() {
+            alert('first');
+        }
+
+        let second = () => {
+            alert('second');
+        }
+
+        function cb(fn) {
+            console.log('실행 영역');
+            fn();
+        }
+
+
+        function callBB() {
+
+            abc();
+            function abc() {
+                alert('abc');
+            }
+
+            let fn = () => {
+                alert('fn');
+            }
+            // fn();
+
+            // 아래 유형이 콜백함수
+            callBa(function() {
+                alert('a의 동작');
+            }, 5);
+
+            callBa(humanA, 5);
+        }
+
+        
+
+        function humanA() {
+            alert('함수 호출');
+        }
+
+        //A랑 협력을 해야하는데 A가 지각을 했음 (순서가 A->B)
+        // B라는 사람이 만들기로 했고
+        function callBa(fn, number) {
+
+            // A의 역할
+            fn();
+            
+
+            //B의 역할
+            alert(number*number);
+        }
+
+
+
+        
+        function getBtn() {
+            //비동기 통신 (오브젝트 타입으로 줌)
+            $.ajax({
+                type: 'get',
+                url: 'http://localhost:3000/get',
+                success: function(res) {
+                    console.log(res);
+                }
+            });
+        }
+
+        //input이면서 타입이 button인 애들 모두 불러옴 (배열로)
+        //2번째 버튼 실행
+        document.querySelectorAll('button[type="button"]')[1].addEventListener('click', function(){
+            let obj = {name: '슈퍼맨'};
+            $.ajax({
+                url: 'http://localhost:3000/send1',
+                type: 'post',
+                data: JSON.stringify(obj),
+                contentType: 'application/json',
+                success: function(res) {
+                    console.log(res);
+                }
+            });
+        });
+
+        //Post방식의 회원가입 
+        document.querySelectorAll('button[type="button"]')[2].addEventListener('click', function(){
+            let obj = {name: '슈퍼맨'};
+            $.ajax({
+                url: 'http://localhost:3000/send1',
+                type: 'post',
+                data: JSON.stringify(obj),
+                contentType: 'application/json',
+                success: function(res) {
+                    console.log(res);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

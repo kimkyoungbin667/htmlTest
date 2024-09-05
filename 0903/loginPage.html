@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>로그인하기</h1>
+
+    <input type="text" id="userId" placeholder="아이디">
+    <input type="password" id="userPw" placeholder="비밀번호">
+    <input type="button" value="로그인" onclick="login()">
+</body>
+
+<script src="/lib/jquery-3.7.1.js"></script>
+
+<script>
+    function login() {
+
+        console.log('실행');
+        let userId = document.getElementById('userId');
+        let userPw = document.getElementById('userPw');
+
+        let obj = {
+            'userId': userId.value,
+            'userPw': userPw.value
+        };
+
+        $.ajax({
+            url: 'http://localhost:3000/login',
+            type: 'get',
+            data: obj,
+            dataType: 'json',
+
+            success: function (res) {
+                console.log(res);
+                if (res.status == 200) {
+                    let list = res.list;
+                    console.log(list);
+                    alert('로그인 성공!');
+                } else{
+                    alert('로그인 실패!');
+                }
+            }
+        });
+
+    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+
+    <style>
+        table {
+            margin-top: 50px;
+            /* 각 간격 붙이기 */
+            border-collapse: collapse;
+        }
+
+        tr,
+        td {
+            border: 1px solid #000;
+        }
+
+        td {
+            padding: 10px 30px;
+        }
+
+        tr:nth-child(1) {
+            background-color: aqua;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        tr:nth-child(7) {
+            background-color: aqua;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #registerBtn {
+            margin-left: 370px;
+        }
+
+        table {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="inputForm">
+        <table>
+            <tr>
+                <td colspan="2">회원 기본 정보</td>
+            </tr>
+            <tr>
+                <td>아이디:</td>
+                <td>
+                    <input type="text" id="id">
+                    4~12자의 영문 대소문자와 숫자로만 입력
+                </td>
+            </tr>
+            <tr>
+                <td>비밀번호:</td>
+                <td>
+                    <input type="password" id="pw">
+                    4~12자의 영문 대소문자와 숫자로만 입력
+                </td>
+            </tr>
+            <tr>
+                <td>비밀번호확인:</td>
+                <td>
+                    <input type="password" id="pwCheck">
+                </td>
+            </tr>
+            <tr>
+                <td>메일주소:</td>
+                <td>
+                    <input type="text" id="email">
+                    예) id@domain.com
+                </td>
+            </tr>
+            <tr>
+                <td>이름:</td>
+                <td>
+                    <input type="text" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">개인 신상 정보</td>
+            </tr>
+            <tr>
+                <td>주민등록번호:</td>
+                <td>
+                    <input type="text" id="resiNum" onchange="birthSetting()">
+                    예) 123456123456
+                </td>
+            </tr>
+            <tr>
+                <td>생일:</td>
+                <td>
+                    <input type="text" id="birthYear">년
+
+                    <select id="birthMonth">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>월
+
+                    <select id="birthDay">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
+                    </select>일
+                </td>
+            </tr>
+            <tr>
+                <td>관심분야:</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="컴퓨터">컴퓨터
+                    <input type="checkbox" name="hobby" value="인터넷">인터넷
+                    <input type="checkbox" name="hobby" value="여행">여행
+                    <input type="checkbox" name="hobby" value="영화감상">영화감상
+                    <input type="checkbox" name="hobby" value="음악감상">음악감상
+                </td>
+            </tr>
+            <tr>
+                <td>자기소개</td>
+                <td><textarea rows=5 cols="45" id="selfIntro"></textarea></td>
+            </tr>
+        </table> <br>
+
+    </form>
+    <input type="button" id="registerBtn" value="회원가입" onclick="register()">
+    <input type="button" id="reWriteBtn" value="다시입력" onclick="reset()">
+
+    <script src="/lib/jquery-3.7.1.js"></script>
+    <script>
+
+        let idField = document.getElementById('id');
+        let pwField = document.getElementById('pw');
+        let pwCheckField = document.getElementById('pwCheck');
+        let emailField = document.getElementById('email');
+        let nameField = document.getElementById('name');
+        let resiNumField = document.getElementById('resiNum');
+        let birthYearField = document.getElementById('birthYear');
+        let birthMonthField = document.getElementById('birthMonth');
+        let birthDayField = document.getElementById('birthDay');
+        let hobbyField = document.getElementsByName('hobby');
+        let selfIntroField = document.getElementById('selfIntro');
+
+        //주민번호에 따른 년,월,일 설정
+        function birthSetting() {
+
+            //주민번호에 따른 년도 설정
+            if (resiNumField.value.substr(0, 2) >= 0 &&
+                resiNumField.value.substr(0, 2) <= 24) {
+                birthYearField.value = '20' + resiNumField.value.substr(0, 2);
+            } else {
+                birthYearField.value = '19' + resiNumField.value.substr(0, 2);
+            }
+
+            //주민번호에 따른 달 설정
+            if (resiNumField.value.substr(2, 2) >= 1 && resiNumField.value.substr(2, 2) <= 12) {
+                birthMonthField.selectedIndex = (resiNumField.value.substr(2, 2) - 1);
+            }
+
+            //주민번호에 따른 일수 설정
+            if (resiNumField.value.substr(4, 2) >= 1 && resiNumField.value.substr(4, 2) <= 31) {
+                birthDayField.selectedIndex = (resiNumField.value.substr(4, 2) - 1);
+            }
+        }
+
+        //주민번호 바뀔때마다 birthSetting()를 실행시키기
+        document.getElementById('resiNum').addEventListener('change', birthSetting);
+
+
+        //회원가입 하기
+        function register() {
+            //아이디 체크 (4~12자의 영문 대소문자, 숫자로 입력)
+
+            //유효성 검사 : 대문자, 소문자, 숫자만 포함되며, 4글자 이상 12글자 이하
+            const idPwPattern = /^[a-zA-Z0-9]{4,12}$/;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            //각 필드의 유효성 검사상태 변수 (6개면 가입성공)
+            let checkNum = 0;
+
+            // idField - 조건에 맞는지 확인
+            if (idPwPattern.test(idField.value)) {
+                checkNum++;
+            } else if (idField.value.length == 0) {
+                alert("아이디를 입력해야합니다");
+                idField.focus();
+                return;
+            }
+
+            // pwField
+            if (idPwPattern.test(pwField.value)) {
+
+                if (pwCheckField.value == pwField.value) {
+                    checkNum++;
+                } else {
+                    alert("비밀번호가 서로 같지 않습니다!");
+                    pwField.focus();
+                    return;
+                }
+
+            } else if (pwField.value.length == 0) {
+                alert("비밀번호를 입력해주세요!");
+                pwField.focus();
+                return;
+            } else {
+                alert("입력하신 비밀번호가 잘못됐습니다!");
+                pwField.focus();
+                return;
+            }
+
+            // emailField - 조건에 맞는지 확인
+            if (emailPattern.test(emailField.value) && emailField.value.length >= 1) {
+                checkNum++;
+            } else if (emailField.value.length == 0) {
+                alert("이메일을 입력해야합니다!");
+                emailField.focus();
+                return;
+            } else {
+                alert("입력하신 이메일이 잘못됐습니다!");
+                emailField.focus();
+                return;
+            }
+
+            //name - 이름
+            if (nameField.value.length >= 1) {
+                checkNum++;
+            } else {
+                alert("이름을 입력해야합니다!");
+                nameField.focu();
+                return;
+            }
+
+            //resiNum - 주민번호
+            if (resiNumField.value.length == 13) {
+                checkNum++;
+            } else if (nameField.value.length == 0) {
+                alert("주민번호를 입력해야합니다!");
+                return;
+            } else {
+                alert("입력하신 주민번호가 잘못됐습니다!");
+                return;
+            }
+
+            //Birth - 생년월일
+            if (birthYearField.value.length >= 4 && birthMonthField.value >= 1 && birthDayField.value >= 1) {
+                checkNum++;
+            } else {
+                alert("입력하신 생년월일이 잘못됐습니다!");
+                return;
+            }
+
+            //hobby - 관심분야
+            let isNotContain = true;
+            for (let i = 0; i < hobbyField.length; i++) {
+                if (hobbyField[i].checked) {
+                    checkNum++;
+                    isNotContain = false;
+                    break;
+                }
+            }
+
+            if (isNotContain) {
+                alert("관심분야는 하나이상 체크해야합니다!");
+                return;
+            }
+
+            if (checkNum == 7) {
+
+                let str = '';
+
+                for (var i = 0; i < hobbyField.length; i++) {
+                    if (hobbyField[i].checked) {
+                        str += hobbyField[i].value + ' ';
+                    }
+                }
+
+                alert("회원가입 성공");
+                alert("=========[ " + nameField.value + " ]=========\n[!]아이디 : " + idField.value +
+                    "\n[!]비밀번호 : " + pwCheckField.value +
+                    "\n[!]메일주소 : " + emailField.value +
+                    "\n[!]주민번호 : " + resiNumField.value.substr(0, 6) + '-' + resiNumField.value.substr(6) +
+                    "\n[!]생년월일 : " + birthYearField.value + "년 " + birthMonthField.value + "월 " + birthDayField.value +
+                    "일\n[!]관심분야 : " + str +
+                    "\n[!]자기소개 : " + selfIntroField.value);
+            } else {
+                alert("회원가입 실패");
+            }
+
+            let hobbies = document.getElementsByName('hobby');
+            let checkedHobby = new Array();
+
+            for(var i = 0; i < hobbies.length; i++){
+                // 선택됐을때의 값들을 출력
+                if(hobbies[i].checked){
+                    // 배열에 값넣기
+                    checkedHobby.push(hobbies[i].value);
+                }
+            }
+
+            let obj = {
+                'userId': idField.value,
+                'userPw': pwField.value,
+                'userEmail': emailField.value,
+                'userName': nameField.value,
+                'userRegiNum': resiNumField.value,
+                'userIntro': selfIntroField.value,
+                'userHobby': checkedHobby
+            };
+
+            
+
+            $.ajax({
+                url: 'http://localhost:3000/register',
+                type: 'get',
+                data: obj,
+                dataType: 'json',
+
+                success: function (res) {
+                    console.log(res);
+                    if (res.status == 200) {
+                        let list = res.list;
+                        console.log(list);
+                    }
+                }
+            });
+
+            location.href='http://127.0.0.1:5501/0903/loginPage.html';
+        }
+
+        function reset() {
+            document.getElementById('inputForm').reset();
+        }
+
+    </script>
+
+</body>
+
+</html>
