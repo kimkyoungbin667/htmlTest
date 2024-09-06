@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>session</title>
+</head>
+<body>
+    <input type="button" value="저장" onclick="save()">
+    <input type="button" value="불러오기" onclick="load()">
+
+    <script>
+
+        //세션도 PC에 저장함 (localStorage처럼)
+        //localStorage는 브라우저를 모두 종료해도 불러올 수 있음
+        //즉, 검색기록 삭제같은거 안하면 계속 남아있음
+
+        //sessionStorage는 '탭'을 종료할 경우 모두 삭제됨
+        
+        //만약 첫번째 탭에서 로그인했고, 그 로그인을 session에 저장함
+        //탭이 생기거나 탭이 달라질경우 session 내용또한 없음 (서로 공유안함)
+        //탭끼리는 서로 공유 안함 (하나의 탭에서 페이지 이동할떈 공유됨)
+
+        
+
+
+        function save() {
+            sessionStorage.setItem('se', '값');
+
+        }
+
+        function load() {
+            console.log(sessionStorage.getItem('se'));
+
+        }
+    </script>
+
+</body>
+</html>
